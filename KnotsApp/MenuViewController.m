@@ -38,6 +38,7 @@
     for (int i = 0; i < [self.pageInformation count]; i++)
     {
         MenuItemView *menuItem = [self setupPageSubviewForIndex:i];
+        menuItem.coverPhoto.backgroundColor = (i%2 == 0)?[UIColor yellowColor]:[UIColor cyanColor];
         [self.menuSlider addSubview:menuItem];
     }
     
@@ -77,6 +78,7 @@
     menuItem.coverPhoto.backgroundColor = [UIColor yellowColor];
     menuItem.coverTitle.backgroundColor = [UIColor whiteColor];
     menuItem.coverTitle.text = [[self.pageInformation objectAtIndex:index] objectForKey:@"title"];
+    menuItem.coverTitle.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
     
     
     return menuItem;

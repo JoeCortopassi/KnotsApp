@@ -14,7 +14,7 @@
 
 @implementation ItemViewController
 
-@synthesize imageScrollView, imagesForItem, buttonSpacing, buttonSize, slideShowTimer, currentSlideIndex;
+@synthesize imageScrollView, itemList, buttonSpacing, buttonSize, slideShowTimer, currentSlideIndex, scrollViewOverlayButton, pagingButtons, descriptionList, exitButton, playButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,7 +22,9 @@
     if (self) {
         // Custom initialization
         self.buttonSpacing = 5.0f;
-        self.buttonSize = CGSizeMake(20.0, 20.0);
+        self.buttonSize = CGSizeMake(30.0, 30.0);
+        self.pagingButtons = [[NSMutableArray alloc] initWithCapacity:[[self itemList] count]];
+        self.descriptionList = [[NSMutableArray alloc] initWithCapacity:[[self itemList] count]];
     }
     return self;
 }
@@ -31,10 +33,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.imageScrollView.contentSize = CGSizeMake(([[UIScreen mainScreen] bounds].size.width * [self.imagesForItem count]), [[UIScreen mainScreen] bounds].size.height-20);
+    
+    self.imageScrollView.contentSize = CGSizeMake(([[UIScreen mainScreen] bounds].size.width * [self.itemList count]), [[UIScreen mainScreen] bounds].size.height-20);
     self.imageScrollView.pagingEnabled = YES;
     self.imageScrollView.backgroundColor = [UIColor purpleColor];
+    
     [self setupPages];
+    [self setupScrollViewOverlayButton];
     [self setupButtonsForPaging];
 }
 
@@ -48,46 +53,79 @@
 
 
 - (void) setupPages
+{   
+    for (int i=0; i<[[self itemList] count]; i++)
+    {
+        [self setupImageForPageAtIndex:i];
+        [self setupDescriptionForPageAtIndex:i];
+    }
+}
+
+
+- (void) setupImageForPageAtIndex:(int)index
 {
     CGRect bounds = [[UIScreen mainScreen] bounds];
     
-    for (int i=0; i<[[self imagesForItem] count]; i++)
-    {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.frame = CGRectMake((i * bounds.size.width), 0, bounds.size.width, bounds.size.height);
-        imageView.backgroundColor = (i%2 == 0)?[UIColor greenColor]:[UIColor orangeColor];
-        
-        [self.imageScrollView addSubview:imageView];
-    }
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.frame = CGRectMake((index * bounds.size.width), 0, bounds.size.width, bounds.size.height);
+    imageView.backgroundColor = (index%2 == 0)?[UIColor greenColor]:[UIColor orangeColor];
+    
+    [self.imageScrollView addSubview:imageView];
+}
+
+
+- (void) setupDescriptionForPageAtIndex:(int)index
+{
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    
+    UITextView *description = [[UITextView alloc] init];
+    description.frame = CGRectMake((index * bounds.size.width), (bounds.size.height * 0.6), bounds.size.width, (bounds.size.height * 0.4));
+    description.text = [[[self itemList] objectAtIndex:index] objectForKey:@"description"];
+    description.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
+    [description setContentInset:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)];
+    description.textColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f];
+    description.font = [UIFont fontWithName:@"Verdana-Bold" size:14];
+
+    
+    [self.imageScrollView addSubview:description];
+    [self.descriptionList addObject:description];
+}
+
+
+- (void) setupScrollViewOverlayButton
+{
+    self.scrollViewOverlayButton = [[UIButton alloc] init];
+    self.scrollViewOverlayButton.frame = CGRectMake(0, 0, ([[UIScreen mainScreen] bounds].size.width * [self.itemList count]), [[UIScreen mainScreen] bounds].size.height-20);
+    self.scrollViewOverlayButton.backgroundColor = [UIColor clearColor];
+    [self.scrollViewOverlayButton addTarget:self
+                                     action:@selector(toggleOverlay)
+                           forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.imageScrollView addSubview:self.scrollViewOverlayButton];
 }
 
 
 - (void) setupButtonsForPaging
 {
-    NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:[[self imagesForItem] count]];
-    
-    
-    for (int i=0; i<[[self imagesForItem] count]; i++)
+    for (int i=0; i<[[self itemList] count]; i++)
     {
         UIButton *buttonForPage = [self getPagingButtonForIndex:i];
         [self.view addSubview:buttonForPage];
-        [buttons addObject:buttonForPage];
+        [self.pagingButtons addObject:buttonForPage];
     }
     
-    [self positionPagingButtons:buttons];
-
-    
+    [self positionPagingButtons:self.pagingButtons];
 }
 
 
-- (NSArray *) imagesForItem
+- (NSArray *) itemList
 {
-    return    @[@"image1.png",
-                @"image2.png",
-                @"image3.png",
-                @"image4.png",
-                @"image5.png",
-                @"image6.png"];
+    return    @[@{@"picture":@"image1.png", @"description":@"1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
+                @{@"picture":@"image1.png", @"description":@"2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
+                @{@"picture":@"image1.png", @"description":@"3 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
+                @{@"picture":@"image1.png", @"description":@"4 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
+                @{@"picture":@"image1.png", @"description":@"5 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
+                @{@"picture":@"image1.png", @"description":@"6 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"}];
 }
 
 
@@ -102,30 +140,37 @@
 }
 
 
-- (void) positionPagingButtons:(NSArray *)pagingButtons
+- (void) positionPagingButtons:(NSArray *)buttons
 {
     CGRect bounds = [[UIScreen mainScreen] bounds];
-    int buttonCount = [[self imagesForItem] count];
+    int buttonCount = [[self itemList] count];
     CGFloat sizeNeededForPaging = ((buttonCount * self.buttonSize.width) + ((buttonCount - 1) * self.buttonSpacing));
     
     float startOfpagingButtons = (bounds.size.width - sizeNeededForPaging) / 2;
     
     
-    for (int i=0; i<[pagingButtons count]; i++)
+    for (int i=0; i<[buttons count]; i++)
     {
         float buttonsXPosition = startOfpagingButtons + ((self.buttonSize.width + self.buttonSpacing) * i);
         float buttonsYPosition = bounds.size.height - (self.buttonSize.height * 2);
         CGRect adjustedFrame = CGRectMake(buttonsXPosition, buttonsYPosition, self.buttonSize.width, self.buttonSize.height);
 
-        [[pagingButtons objectAtIndex:i] setFrame:adjustedFrame];
+        [[buttons objectAtIndex:i] setFrame:adjustedFrame];
     }
 }
 
 
 - (void) pagingButtonPressed:(id)sender
 {
+    self.currentSlideIndex = [sender tag] - 1;
     CGFloat pageXPosition = ([sender tag] * [[UIScreen mainScreen] bounds].size.width);
     [self.imageScrollView setContentOffset:CGPointMake(pageXPosition, 0) animated:YES];
+}
+
+
+- (void) scrollViewOverlayTouched
+{
+    
 }
 
 
@@ -133,7 +178,7 @@
 {
     if (self.slideShowTimer == nil)
     {
-        self.slideShowTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+        self.slideShowTimer = [NSTimer scheduledTimerWithTimeInterval:1.5
                                                                target:self
                                                              selector:@selector(playNextSlide)
                                                              userInfo:nil
@@ -151,7 +196,7 @@
 {
     BOOL shouldAnimate;
     
-    if (self.currentSlideIndex == [[self imagesForItem] count]-1)
+    if (self.currentSlideIndex == [[self itemList] count]-1)
     {
         self.currentSlideIndex = 0;
         shouldAnimate = NO;
@@ -164,6 +209,21 @@
     
     [self.imageScrollView setContentOffset:CGPointMake(self.currentSlideIndex * [[UIScreen mainScreen] bounds].size.width, 0)
                                   animated:shouldAnimate];
+}
+
+
+- (void) toggleOverlay
+{
+    BOOL isHidden = !self.exitButton.hidden;
+    
+    self.exitButton.hidden = isHidden;
+    self.playButton.hidden = isHidden;
+    
+    for (int i=0; i<[self.itemList count]; i++)
+    {
+        [[self.pagingButtons objectAtIndex:i] setHidden:isHidden];
+        [[self.descriptionList objectAtIndex:i] setHidden:isHidden];
+    }
 }
 
 

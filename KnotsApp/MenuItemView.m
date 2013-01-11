@@ -22,7 +22,7 @@
         self.selectedItemViewController = nil;
         
         CGRect bounds = [[UIScreen mainScreen] bounds];
-        self.coverPhoto = [[UIImageView alloc] initWithFrame:CGRectMake(10.0, 10.0, bounds.size.width - 20.0, (bounds.size.height * 0.66))];
+        self.coverPhoto = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height)];
         [self addSubview:self.coverPhoto];
         
         self.imageOverlayButton = [[UIButton alloc] initWithFrame:self.coverPhoto.frame];
@@ -32,13 +32,20 @@
                           forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.imageOverlayButton];
         
-        self.coverTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, (bounds.size.height * 0.77), bounds.size.width-40, 50)];
+        self.coverTitle = [[UITextView alloc] initWithFrame:CGRectMake(0, (bounds.size.height * 0.85), bounds.size.width, (bounds.size.height * 0.15)-20)];
+        [self.coverTitle setContentInset:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)];
+        self.coverTitle.font = [UIFont fontWithName:@"Verdana-Bold" size:20];
+        self.coverTitle.textColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f];
+        
         [self.coverTitle setTextAlignment: NSTextAlignmentCenter];
         [self addSubview:self.coverTitle];
     }
     
     return self;
 }
+
+
+
 
 
 - (void)menuItemSelected:(id)sender

@@ -16,13 +16,13 @@
 @interface MenuItemView : UIView
 {
     UIImageView *coverPhoto;
-    UILabel *coverTitle;
+    UITextView *coverTitle;
     UIButton *imageOverlayButton;
     ItemViewController *selectedItemViewController;
 }
 
 @property (nonatomic, strong) UIImageView *coverPhoto;
-@property (nonatomic, strong) UILabel *coverTitle;
+@property (nonatomic, strong) UITextView *coverTitle;
 @property (nonatomic, strong) UIButton *imageOverlayButton;
 @property (nonatomic, assign) id<MenuItemViewDelegate> delegate;
 @property (nonatomic, strong) ItemViewController *selectedItemViewController;
