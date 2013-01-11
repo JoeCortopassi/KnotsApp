@@ -16,6 +16,11 @@
 		732C5F5E169E61800067796E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 732C5F5D169E61800067796E /* Default.png */; };
 		732C5F60169E61800067796E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 732C5F5F169E61800067796E /* Default@2x.png */; };
 		732C5F62169E61800067796E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 732C5F61169E61800067796E /* Default-568h@2x.png */; };
+		732C5F6E169E65520067796E /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732C5F6C169E65520067796E /* MenuViewController.m */; };
+		732C5F6F169E65520067796E /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732C5F6D169E65520067796E /* MenuViewController.xib */; };
+		732C5F7B169E71CA0067796E /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732C5F7A169E71CA0067796E /* MenuItemView.m */; };
+		73CB6081169FD4AD00E61F95 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CB607F169FD4AD00E61F95 /* ItemViewController.m */; };
+		73CB6082169FD4AD00E61F95 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CB6080169FD4AD00E61F95 /* ItemViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,14 @@
 		732C5F5D169E61800067796E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		732C5F5F169E61800067796E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		732C5F61169E61800067796E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		732C5F6B169E65520067796E /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		732C5F6C169E65520067796E /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		732C5F6D169E65520067796E /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		732C5F79169E71CA0067796E /* MenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemView.h; sourceTree = "<group>"; };
+		732C5F7A169E71CA0067796E /* MenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemView.m; sourceTree = "<group>"; };
+		73CB607E169FD4AD00E61F95 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		73CB607F169FD4AD00E61F95 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		73CB6080169FD4AD00E61F95 /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +93,14 @@
 			children = (
 				732C5F5A169E61800067796E /* AppDelegate.h */,
 				732C5F5B169E61800067796E /* AppDelegate.m */,
+				732C5F6B169E65520067796E /* MenuViewController.h */,
+				732C5F6C169E65520067796E /* MenuViewController.m */,
+				732C5F6D169E65520067796E /* MenuViewController.xib */,
+				732C5F79169E71CA0067796E /* MenuItemView.h */,
+				732C5F7A169E71CA0067796E /* MenuItemView.m */,
+				73CB607E169FD4AD00E61F95 /* ItemViewController.h */,
+				73CB607F169FD4AD00E61F95 /* ItemViewController.m */,
+				73CB6080169FD4AD00E61F95 /* ItemViewController.xib */,
 				732C5F52169E61800067796E /* Supporting Files */,
 			);
 			path = KnotsApp;
@@ -154,6 +175,8 @@
 				732C5F5E169E61800067796E /* Default.png in Resources */,
 				732C5F60169E61800067796E /* Default@2x.png in Resources */,
 				732C5F62169E61800067796E /* Default-568h@2x.png in Resources */,
+				732C5F6F169E65520067796E /* MenuViewController.xib in Resources */,
+				73CB6082169FD4AD00E61F95 /* ItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +189,9 @@
 			files = (
 				732C5F58169E61800067796E /* main.m in Sources */,
 				732C5F5C169E61800067796E /* AppDelegate.m in Sources */,
+				732C5F6E169E65520067796E /* MenuViewController.m in Sources */,
+				732C5F7B169E71CA0067796E /* MenuItemView.m in Sources */,
+				73CB6081169FD4AD00E61F95 /* ItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,10 +262,12 @@
 		732C5F66169E61800067796E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KnotsApp/KnotsApp-Prefix.pch";
 				INFOPLIST_FILE = "KnotsApp/KnotsApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -247,10 +275,12 @@
 		732C5F67169E61800067796E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KnotsApp/KnotsApp-Prefix.pch";
 				INFOPLIST_FILE = "KnotsApp/KnotsApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -274,6 +304,7 @@
 				732C5F67169E61800067796E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

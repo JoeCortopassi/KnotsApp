@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class MenuViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    UINavigationController *navController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, strong) UINavigationController *navController;
 @end
