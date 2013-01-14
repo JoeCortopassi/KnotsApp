@@ -11,7 +11,7 @@
 
 @implementation MenuItemView
 
-@synthesize coverPhoto, coverTitle, imageOverlayButton, delegate, selectedItemViewController;
+@synthesize coverPhoto, coverTitle, imageOverlayButton, delegate, selectedItemViewController, itemName;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -33,7 +33,7 @@
         [self addSubview:self.imageOverlayButton];
         
         self.coverTitle = [[UITextView alloc] initWithFrame:CGRectMake(0, (bounds.size.height * 0.85), bounds.size.width, (bounds.size.height * 0.15)-20)];
-        [self.coverTitle setContentInset:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)];
+        [self.coverTitle setContentInset:UIEdgeInsetsMake(10.0f, 20.0f, 20.0f, 20.0f)];
         self.coverTitle.font = [UIFont fontWithName:@"Verdana-Bold" size:20];
         self.coverTitle.textColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f];
         
@@ -52,6 +52,9 @@
 {
     self.selectedItemViewController = [[ItemViewController alloc] init];
     self.selectedItemViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    // set the knot selection string. Hard coded for testing
+    self.selectedItemViewController.selectedKnot = self.itemName;
     
     [self.delegate showItem:self.selectedItemViewController];
 }

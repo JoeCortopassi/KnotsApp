@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import "ItemViewController.h"
 
 @interface MenuViewController ()
 
@@ -14,7 +15,7 @@
 
 @implementation MenuViewController
 
-@synthesize menuSlider, pageInformation;
+@synthesize menuSlider, pageInformation,knotKeys;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -22,6 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.knotKeys = [self.pageInformation allKeys];
     }
     return self;
 }
@@ -50,38 +52,40 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSArray *) pageInformation
+- (NSDictionary *) pageInformation
 {
-    return    @[@{@"title" : @"1st pic", @"picture" : @"pic1.png"},
-                @{@"title" : @"2nd pic", @"picture" : @"pic2.png"},
-                @{@"title" : @"3rd pic", @"picture" : @"pic3.png"},
-                @{@"title" : @"4th pic", @"picture" : @"pic4.png"},
-                @{@"title" : @"5th pic", @"picture" : @"pic5.png"},
-                @{@"title" : @"6th pic", @"picture" : @"pic6.png"},
-                @{@"title" : @"7th pic", @"picture" : @"pic7.png"},
-                @{@"title" : @"8th pic", @"picture" : @"pic8.png"},
-                @{@"title" : @"9th pic", @"picture" : @"pic9.png"},
-                @{@"title" : @"10th pic", @"picture" : @"pic10.png"}];
+    return    @{@"squareKnot" : @{@"title" : @"Square Knot", @"picture" : @"squareKnot5.jpg", @"name" : @"squareKnot"},
+                @"cloveHitch" : @{@"title" : @"Clove Hitch", @"picture" : @"cloveHitch6.jpg", @"name" : @"cloveHitch"},
+                @"hitchingTie": @{@"title" : @"Hitching Tie", @"picture" : @"hitchingTie6.jpg", @"name" : @"hitchingTie"}};
 }
 
 - (MenuItemView *)setupPageSubviewForIndex:(int)index
 {
     MenuItemView *menuItem = [[MenuItemView alloc] init];
+    menuItem.backgroundColor = [UIColor blackColor];
+    menuItem.delegate = self;
     menuItem.frame = CGRectMake(([[UIScreen mainScreen] bounds].size.width * index),
                                 0,
                                 [[UIScreen mainScreen] bounds].size.width,
                                 [[UIScreen mainScreen] bounds].size.height-20);
-    menuItem.delegate = self;
-    menuItem.backgroundColor = [UIColor blueColor];
+
+    menuItem.coverPhoto.image = [self imageForMenuItemAtIndex:index];
     
-    
-    menuItem.coverPhoto.backgroundColor = [UIColor yellowColor];
-    menuItem.coverTitle.backgroundColor = [UIColor whiteColor];
-    menuItem.coverTitle.text = [[self.pageInformation objectAtIndex:index] objectForKey:@"title"];
+    menuItem.coverTitle.text = [[self.pageInformation objectForKey:[self.knotKeys objectAtIndex:index]] objectForKey:@"title"];
     menuItem.coverTitle.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
     
+    menuItem.itemName = [[self.pageInformation objectForKey:[self.knotKeys objectAtIndex:index]] objectForKey:@"name"];
     
     return menuItem;
+}
+
+
+- (UIImage *) imageForMenuItemAtIndex:(int)index
+{
+    NSString *fileName = [[self.pageInformation objectForKey:[self.knotKeys objectAtIndex:index]] objectForKey:@"picture"];
+    UIImage *image = [UIImage imageNamed:fileName];
+    
+    return image;
 }
 
 

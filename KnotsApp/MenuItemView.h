@@ -19,6 +19,7 @@
     UITextView *coverTitle;
     UIButton *imageOverlayButton;
     ItemViewController *selectedItemViewController;
+    NSString *itemName;
 }
 
 @property (nonatomic, strong) UIImageView *coverPhoto;
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) UIButton *imageOverlayButton;
 @property (nonatomic, assign) id<MenuItemViewDelegate> delegate;
 @property (nonatomic, strong) ItemViewController *selectedItemViewController;
+@property (nonatomic, strong) NSString *itemName;
 
 - (void)menuItemSelected:(id)sender;
 @end

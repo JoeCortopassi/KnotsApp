@@ -13,9 +13,11 @@
 @interface MenuViewController : UIViewController <MenuItemViewDelegate>
 {
     IBOutlet UIScrollView *menuSlider;
-    NSArray *pageInformation;
+    NSArray *knotKeys;
+    NSDictionary *pageInformation;
 }
 
 @property (nonatomic, strong) UIScrollView *menuSlider;
-@property (nonatomic, strong) NSArray *pageInformation;
+@property (nonatomic, strong) NSDictionary *pageInformation;
+@property (nonatomic, strong) NSArray *knotKeys;
 @end

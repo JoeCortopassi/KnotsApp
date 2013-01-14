@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemViewController : UIViewController
+@interface ItemViewController : UIViewController <UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *imageScrollView;
-    NSArray *itemList;
+    NSDictionary *itemList;
     CGFloat buttonSpacing;
     CGSize buttonSize;
     NSTimer *slideShowTimer;
@@ -21,10 +21,12 @@
     IBOutlet UIButton *playButton;
     NSMutableArray *pagingButtons;
     NSMutableArray *descriptionList;
+    NSString *selectedKnot;
+    UIColor *selectionColor;
 }
 
 @property (nonatomic, strong) UIScrollView *imageScrollView;
-@property (nonatomic, strong) NSArray *itemList;
+@property (nonatomic, strong) NSDictionary *itemList;
 @property (nonatomic, assign) CGFloat buttonSpacing;
 @property (nonatomic, assign) CGSize buttonSize;
 @property (nonatomic, strong) NSTimer *slideShowTimer;
@@ -34,6 +36,8 @@
 @property (nonatomic, strong) UIButton *playButton;
 @property (nonatomic, strong) NSMutableArray *pagingButtons;
 @property (nonatomic, strong) NSMutableArray *descriptionList;
+@property (nonatomic, strong) NSString *selectedKnot;
+@property (nonatomic, strong) UIColor *selectionColor;
 
 -(IBAction)exitItemView:(id)sender;
 -(IBAction)autoScrollPages:(id)sender;
