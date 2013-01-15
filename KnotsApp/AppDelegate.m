@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LoadingViewController.h"
 #import "MenuViewController.h"
 
 @implementation AppDelegate
@@ -17,15 +18,23 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
     MenuViewController *menuViewController = [[MenuViewController alloc] init];
-
+    LoadingViewController *loadingViewController = [[LoadingViewController alloc] init];
+    
     self.navController = [[UINavigationController alloc] initWithRootViewController:menuViewController];
     self.navController.navigationBar.hidden = YES;
     
+    [self.navController pushViewController:loadingViewController animated:NO];
+    
     [self.window addSubview:self.navController.view];
-
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void) loadMenu
+{
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

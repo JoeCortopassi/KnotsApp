@@ -15,7 +15,7 @@
 
 @implementation MenuViewController
 
-@synthesize menuSlider, pageInformation,knotKeys, leftArrow, rightArrow, currentSlideIndex;
+@synthesize menuSlider, pageInformation,knotKeys, leftArrow, rightArrow, leftArrowButton, rightArrowButton, currentSlideIndex;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     self.currentSlideIndex = 0;
     self.menuSlider.contentSize = CGSizeMake(([[UIScreen mainScreen] bounds].size.width * [self.pageInformation count]), [[UIScreen mainScreen] bounds].size.height-20);
     self.menuSlider.pagingEnabled = YES;
@@ -45,24 +46,38 @@
     }
     
     
-    self.leftArrow = [[UIButton alloc] init];
-    [self.leftArrow setImage:[UIImage imageNamed:@"left_arrow.png"] forState:UIControlStateNormal];
+    [self setupPagingArrows];
+}
+
+- (void)setupPagingArrows
+{
+    self.leftArrow = [[UIImageView alloc] init];
+    [self.leftArrow setImage:[UIImage imageNamed:@"left_arrow.png"]];
     self.leftArrow.frame = CGRectMake(10, [[UIScreen mainScreen] bounds].size.height-65, 12.5, 25.0);
-    //self.leftArrow.center = CGPointMake(20, [[UIScreen mainScreen] bounds].size.height*0.42);
     self.leftArrow.alpha = 0.4f;
     self.leftArrow.hidden = YES;
-    [self.leftArrow addTarget:self action:@selector(leftPageArrowTouched) forControlEvents:UIControlEventTouchUpInside];
     
-    self.rightArrow = [[UIButton alloc] init];
-    [self.rightArrow setImage:[UIImage imageNamed:@"right_arrow.png"] forState:UIControlStateNormal];
+    self.leftArrowButton = [[UIButton alloc] init];
+    self.leftArrowButton.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height-75, 52.5, 45.0);
+    self.leftArrowButton.enabled = NO;
+    [self.leftArrowButton addTarget:self action:@selector(leftPageArrowTouched) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    self.rightArrow = [[UIImageView alloc] init];
+    [self.rightArrow setImage:[UIImage imageNamed:@"right_arrow.png"]];
     self.rightArrow.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width-22.5, [[UIScreen mainScreen] bounds].size.height-65, 12.5, 25.0);
-    //self.rightArrow.center = CGPointMake([[UIScreen mainScreen] bounds].size.width-20, [[UIScreen mainScreen] bounds].size.height*0.42);
     self.rightArrow.alpha = 0.4f;
-    [self.rightArrow addTarget:self action:@selector(rightPageArrowTouched) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.rightArrowButton = [[UIButton alloc] init];
+    self.rightArrowButton.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width-52.5, [[UIScreen mainScreen] bounds].size.height-75, 52.5, 45.0);
+    [self.rightArrowButton setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.rightArrowButton addTarget:self action:@selector(rightPageArrowTouched) forControlEvents:UIControlEventTouchUpInside];
     
     
     [self.view addSubview:self.leftArrow];
+    [self.view addSubview:self.leftArrowButton];
     [self.view addSubview:self.rightArrow];
+    [self.view addSubview:self.rightArrowButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -157,15 +172,19 @@
     if (slide == 0)
     {
         self.leftArrow.hidden = YES;
+        self.leftArrowButton.enabled = NO;
     }
     else if (slide == [self.pageInformation count]-1)
     {
         self.rightArrow.hidden = YES;
+        self.rightArrowButton.enabled = NO;
     }
     else
     {
         self.leftArrow.hidden = NO;
+        self.leftArrowButton.enabled = YES;
         self.rightArrow.hidden = NO;
+        self.rightArrowButton.enabled = YES;
     }
     
     

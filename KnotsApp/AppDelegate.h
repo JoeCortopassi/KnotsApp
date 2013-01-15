@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class MenuViewController;
+@class LoadingViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {

@@ -39,6 +39,7 @@
         self.coverTitle.textColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f];
         self.coverTitle.scrollEnabled = NO;
         [self.coverTitle setEditable:NO];
+        [self.coverTitle setUserInteractionEnabled:NO];
         
         [self.coverTitle setTextAlignment: NSTextAlignmentCenter];
         [self addSubview:self.coverTitle];

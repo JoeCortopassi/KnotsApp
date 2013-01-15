@@ -81,6 +81,10 @@
 		732C5F6E169E65520067796E /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732C5F6C169E65520067796E /* MenuViewController.m */; };
 		732C5F6F169E65520067796E /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732C5F6D169E65520067796E /* MenuViewController.xib */; };
 		732C5F7B169E71CA0067796E /* MenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 732C5F7A169E71CA0067796E /* MenuItemView.m */; };
+		7355613A16A56A3400588630 /* appIcon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7355613916A56A3400588630 /* appIcon57.png */; };
+		7355613E16A5B94E00588630 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7355613C16A5B94D00588630 /* LoadingViewController.m */; };
+		7355613F16A5B94E00588630 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7355613D16A5B94D00588630 /* LoadingViewController.xib */; };
+		7355614016A5CF5E00588630 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CF700316A3F33E00C6D3A7 /* Default.png */; };
 		73CB6081169FD4AD00E61F95 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CB607F169FD4AD00E61F95 /* ItemViewController.m */; };
 		73CB6082169FD4AD00E61F95 /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CB6080169FD4AD00E61F95 /* ItemViewController.xib */; };
 		73CF700616A3F3C800C6D3A7 /* smallAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 73CF700516A3F3C800C6D3A7 /* smallAppIcon.png */; };
@@ -169,6 +173,10 @@
 		732C5F6D169E65520067796E /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		732C5F79169E71CA0067796E /* MenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemView.h; sourceTree = "<group>"; };
 		732C5F7A169E71CA0067796E /* MenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemView.m; sourceTree = "<group>"; };
+		7355613916A56A3400588630 /* appIcon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon57.png; sourceTree = "<group>"; };
+		7355613B16A5B94D00588630 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		7355613C16A5B94D00588630 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		7355613D16A5B94D00588630 /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		73CB607E169FD4AD00E61F95 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		73CB607F169FD4AD00E61F95 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		73CB6080169FD4AD00E61F95 /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
@@ -225,6 +233,7 @@
 		732C5F3C169E61800067796E = {
 			isa = PBXGroup;
 			children = (
+				7355613916A56A3400588630 /* appIcon57.png */,
 				73CF700516A3F3C800C6D3A7 /* smallAppIcon.png */,
 				73CF700316A3F33E00C6D3A7 /* Default.png */,
 				732C5F51169E61800067796E /* KnotsApp */,
@@ -256,6 +265,9 @@
 			children = (
 				732C5F5A169E61800067796E /* AppDelegate.h */,
 				732C5F5B169E61800067796E /* AppDelegate.m */,
+				7355613B16A5B94D00588630 /* LoadingViewController.h */,
+				7355613C16A5B94D00588630 /* LoadingViewController.m */,
+				7355613D16A5B94D00588630 /* LoadingViewController.xib */,
 				732C5F6B169E65520067796E /* MenuViewController.h */,
 				732C5F6C169E65520067796E /* MenuViewController.m */,
 				732C5F6D169E65520067796E /* MenuViewController.xib */,
@@ -527,6 +539,9 @@
 				7317373316A5459B00FC2E2C /* squareKnot6.jpg in Resources */,
 				7317373616A54AD600FC2E2C /* left_arrow.png in Resources */,
 				7317373716A54AD600FC2E2C /* right_arrow.png in Resources */,
+				7355613A16A56A3400588630 /* appIcon57.png in Resources */,
+				7355613F16A5B94E00588630 /* LoadingViewController.xib in Resources */,
+				7355614016A5CF5E00588630 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +557,7 @@
 				732C5F6E169E65520067796E /* MenuViewController.m in Sources */,
 				732C5F7B169E71CA0067796E /* MenuItemView.m in Sources */,
 				73CB6081169FD4AD00E61F95 /* ItemViewController.m in Sources */,
+				7355613E16A5B94E00588630 /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +635,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -626,15 +643,16 @@
 		732C5F67169E61800067796E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: joseph cortopassi";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: joseph cortopassi";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KnotsApp/KnotsApp-Prefix.pch";
 				INFOPLIST_FILE = "KnotsApp/KnotsApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "8128D38F-8237-4F84-B681-AD769074E663";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8128D38F-8237-4F84-B681-AD769074E663";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

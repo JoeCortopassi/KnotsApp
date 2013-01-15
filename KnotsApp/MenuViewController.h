@@ -15,15 +15,19 @@
     IBOutlet UIScrollView *menuSlider;
     NSArray *knotKeys;
     NSDictionary *pageInformation;
-    UIButton *leftArrow;
-    UIButton *rightArrow;
+    UIImageView *leftArrow;
+    UIImageView *rightArrow;
+    UIButton *leftArrowButton;
+    UIButton *rightArrowButton;
     int currentSlideIndex;
 }
 
 @property (nonatomic, strong) UIScrollView *menuSlider;
 @property (nonatomic, strong) NSDictionary *pageInformation;
 @property (nonatomic, strong) NSArray *knotKeys;
-@property (nonatomic, strong) UIButton *leftArrow;
-@property (nonatomic, strong) UIButton *rightArrow;
+@property (nonatomic, strong) UIImageView *leftArrow;
+@property (nonatomic, strong) UIImageView *rightArrow;
+@property (nonatomic, strong) UIButton *leftArrowButton;
+@property (nonatomic, strong) UIButton *rightArrowButton;
 @property (nonatomic, assign) int currentSlideIndex;
 @end
