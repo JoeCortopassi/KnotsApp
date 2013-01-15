@@ -150,7 +150,7 @@
                                 @{@"picture" : @"hitchingTie6.jpg", @"description" : @""},
                                 @{@"picture" : @"hitchingTie7.jpg", @"description" : @""}];
     
-    NSArray *bowline    = @[@{@"picture" : @"bowline1.jpg", @"description" : @""},
+    NSArray *bowline    = @[//@{@"picture" : @"bowline1.jpg", @"description" : @""},
                             @{@"picture" : @"bowline2.jpg", @"description" : @""},
                             @{@"picture" : @"bowline3.jpg", @"description" : @""},
                             @{@"picture" : @"bowline4.jpg", @"description" : @""},
@@ -177,7 +177,8 @@
                             @{@"picture" : @"transomKnot3.jpg", @"description" : @""},
                             @{@"picture" : @"transomKnot4.jpg", @"description" : @""},
                             @{@"picture" : @"transomKnot5.jpg", @"description" : @""},
-                            @{@"picture" : @"transomKnot6.jpg", @"description" : @""}];
+                            @{@"picture" : @"transomKnot6.jpg", @"description" : @""},
+                            @{@"picture" : @"transomKnot7.jpg", @"description" : @""}];
     
     NSArray *sheetBend  = @[@{@"picture" : @"squareKnot1.jpg", @"description" : @""},
                             @{@"picture" : @"squareKnot2.jpg", @"description" : @""},

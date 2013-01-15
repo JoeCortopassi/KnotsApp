@@ -15,7 +15,7 @@
 
 @implementation MenuViewController
 
-@synthesize menuSlider, pageInformation,knotKeys, pageOrder;
+@synthesize menuSlider, pageInformation,knotKeys;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,7 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.knotKeys = [self.pageInformation allKeys];
+        
     }
     return self;
 }
@@ -64,6 +64,20 @@
                 @"sheetBend"        : @{@"title" : @"Sheet Bend",       @"picture" : @"sheetBend5.jpg",         @"name" : @"sheetBend"},
                 @"butterflyLoop"    : @{@"title" : @"Butterfly Loop",   @"picture" : @"butterflyLoop7.jpg",     @"name" : @"butterflyLoop"},
                 @"heavingLineKnot"  : @{@"title" : @"Heaving Line Knot",@"picture" : @"heavingLineKnot8.jpg",   @"name" : @"heavingLineKnot"}};
+}
+
+- (NSArray *) knotKeys
+{
+    return    @[@"bowline",
+                @"butterflyLoop",
+                @"cloveHitch",
+                @"cowHitch",
+                @"heavingLineKnot",
+                @"hitchingTie",
+                @"overhandLoop",
+                @"sheetBend",
+                @"squareKnot",
+                @"transomKnot"];
 }
 
 - (MenuItemView *)setupPageSubviewForIndex:(int)index

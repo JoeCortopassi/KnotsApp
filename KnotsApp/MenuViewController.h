@@ -15,11 +15,9 @@
     IBOutlet UIScrollView *menuSlider;
     NSArray *knotKeys;
     NSDictionary *pageInformation;
-    NSArray *pageOrder;
 }
 
 @property (nonatomic, strong) UIScrollView *menuSlider;
 @property (nonatomic, strong) NSDictionary *pageInformation;
 @property (nonatomic, strong) NSArray *knotKeys;
-@property (nonatomic, strong) NSArray *pageOrder;
 @end
