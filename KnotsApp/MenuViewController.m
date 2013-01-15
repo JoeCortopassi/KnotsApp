@@ -15,7 +15,7 @@
 
 @implementation MenuViewController
 
-@synthesize menuSlider, pageInformation,knotKeys;
+@synthesize menuSlider, pageInformation,knotKeys, leftArrow, rightArrow, currentSlideIndex;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,7 +23,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
     }
     return self;
 }
@@ -32,9 +31,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.currentSlideIndex = 0;
     self.menuSlider.contentSize = CGSizeMake(([[UIScreen mainScreen] bounds].size.width * [self.pageInformation count]), [[UIScreen mainScreen] bounds].size.height-20);
     self.menuSlider.pagingEnabled = YES;
+    self.menuSlider.delegate = self;
     
     
     for (int i = 0; i < [self.pageInformation count]; i++)
@@ -44,6 +44,25 @@
         [self.menuSlider addSubview:menuItem];
     }
     
+    
+    self.leftArrow = [[UIButton alloc] init];
+    [self.leftArrow setImage:[UIImage imageNamed:@"left_arrow.png"] forState:UIControlStateNormal];
+    self.leftArrow.frame = CGRectMake(10, [[UIScreen mainScreen] bounds].size.height-65, 12.5, 25.0);
+    //self.leftArrow.center = CGPointMake(20, [[UIScreen mainScreen] bounds].size.height*0.42);
+    self.leftArrow.alpha = 0.4f;
+    self.leftArrow.hidden = YES;
+    [self.leftArrow addTarget:self action:@selector(leftPageArrowTouched) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.rightArrow = [[UIButton alloc] init];
+    [self.rightArrow setImage:[UIImage imageNamed:@"right_arrow.png"] forState:UIControlStateNormal];
+    self.rightArrow.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width-22.5, [[UIScreen mainScreen] bounds].size.height-65, 12.5, 25.0);
+    //self.rightArrow.center = CGPointMake([[UIScreen mainScreen] bounds].size.width-20, [[UIScreen mainScreen] bounds].size.height*0.42);
+    self.rightArrow.alpha = 0.4f;
+    [self.rightArrow addTarget:self action:@selector(rightPageArrowTouched) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self.view addSubview:self.leftArrow];
+    [self.view addSubview:self.rightArrow];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,6 +132,44 @@
 -(void) showItem:(ItemViewController *)itemViewController
 {
     [self.navigationController presentViewController:(UIViewController *)itemViewController animated:YES completion:nil];
+}
+
+
+- (void) rightPageArrowTouched
+{
+    CGFloat pageXPosition = ((self.currentSlideIndex+1) * [[UIScreen mainScreen] bounds].size.width);
+    [self.menuSlider setContentOffset:CGPointMake(pageXPosition, 0) animated:YES];
+}
+
+
+- (void) leftPageArrowTouched
+{
+    CGFloat pageXPosition = ((self.currentSlideIndex-1) * [[UIScreen mainScreen] bounds].size.width);
+    [self.menuSlider setContentOffset:CGPointMake(pageXPosition, 0) animated:YES];
+}
+
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int slide = floor((scrollView.contentOffset.x - [[UIScreen mainScreen] bounds].size.width / 2) / [[UIScreen mainScreen] bounds].size.width)+1;
+    
+    
+    if (slide == 0)
+    {
+        self.leftArrow.hidden = YES;
+    }
+    else if (slide == [self.pageInformation count]-1)
+    {
+        self.rightArrow.hidden = YES;
+    }
+    else
+    {
+        self.leftArrow.hidden = NO;
+        self.rightArrow.hidden = NO;
+    }
+    
+    
+    self.currentSlideIndex = slide;
 }
 
 @end

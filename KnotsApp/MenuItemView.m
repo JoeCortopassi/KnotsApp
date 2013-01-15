@@ -32,10 +32,13 @@
                           forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.imageOverlayButton];
         
-        self.coverTitle = [[UITextView alloc] initWithFrame:CGRectMake(0, (bounds.size.height * 0.85), bounds.size.width, (bounds.size.height * 0.15)-20)];
+        self.coverTitle = [[UITextView alloc] initWithFrame:CGRectMake(0, (bounds.size.height - 85.0), bounds.size.width, 85.0)];
+
         [self.coverTitle setContentInset:UIEdgeInsetsMake(10.0f, 20.0f, 20.0f, 20.0f)];
         self.coverTitle.font = [UIFont fontWithName:@"Verdana-Bold" size:20];
         self.coverTitle.textColor = [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f];
+        self.coverTitle.scrollEnabled = NO;
+        [self.coverTitle setEditable:NO];
         
         [self.coverTitle setTextAlignment: NSTextAlignmentCenter];
         [self addSubview:self.coverTitle];

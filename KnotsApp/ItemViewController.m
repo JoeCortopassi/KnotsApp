@@ -46,6 +46,7 @@
     self.currentSlideIndex = 0;
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -87,7 +88,7 @@
     CGRect bounds = [[UIScreen mainScreen] bounds];
     
     UITextView *description = [[UITextView alloc] init];
-    description.frame = CGRectMake((index * bounds.size.width), (bounds.size.height * 0.85), bounds.size.width, (bounds.size.height * 0.15));
+    description.frame = CGRectMake((index * bounds.size.width), (bounds.size.height - 85.0), bounds.size.width, 85.0);
     description.text = [(NSDictionary *)[(NSArray *)[(NSDictionary *)self.itemList objectForKey:self.selectedKnot] objectAtIndex:index] objectForKey:@"description"];
     description.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
     [description setContentInset:UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f)];
