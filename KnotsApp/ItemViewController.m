@@ -150,10 +150,71 @@
                                 @{@"picture" : @"hitchingTie6.jpg", @"description" : @""},
                                 @{@"picture" : @"hitchingTie7.jpg", @"description" : @""}];
     
+    NSArray *bowline    = @[@{@"picture" : @"bowline1.jpg", @"description" : @""},
+                            @{@"picture" : @"bowline2.jpg", @"description" : @""},
+                            @{@"picture" : @"bowline3.jpg", @"description" : @""},
+                            @{@"picture" : @"bowline4.jpg", @"description" : @""},
+                            @{@"picture" : @"bowline5.jpg", @"description" : @""},
+                            @{@"picture" : @"bowline6.jpg", @"description" : @""},
+                            @{@"picture" : @"bowline7.jpg", @"description" : @""}];
+    
+    NSArray *overhandLoop   = @[@{@"picture" : @"overhandLoop1.jpg", @"description" : @""},
+                                @{@"picture" : @"overhandLoop2.jpg", @"description" : @""},
+                                @{@"picture" : @"overhandLoop3.jpg", @"description" : @""},
+                                @{@"picture" : @"overhandLoop4.jpg", @"description" : @""},
+                                @{@"picture" : @"overhandLoop5.jpg", @"description" : @""}];
+    
+    NSArray *cowHitch   = @[@{@"picture" : @"cowHitch1.jpg", @"description" : @""},
+                            @{@"picture" : @"cowHitch2.jpg", @"description" : @""},
+                            @{@"picture" : @"cowHitch3.jpg", @"description" : @""},
+                            @{@"picture" : @"cowHitch4.jpg", @"description" : @""},
+                            @{@"picture" : @"cowHitch5.jpg", @"description" : @""},
+                            @{@"picture" : @"cowHitch6.jpg", @"description" : @""},
+                            @{@"picture" : @"cowHitch7.jpg", @"description" : @""}];
+    
+    NSArray *transomKnot= @[@{@"picture" : @"transomKnot1.jpg", @"description" : @""},
+                            @{@"picture" : @"transomKnot2.jpg", @"description" : @""},
+                            @{@"picture" : @"transomKnot3.jpg", @"description" : @""},
+                            @{@"picture" : @"transomKnot4.jpg", @"description" : @""},
+                            @{@"picture" : @"transomKnot5.jpg", @"description" : @""},
+                            @{@"picture" : @"transomKnot6.jpg", @"description" : @""}];
+    
+    NSArray *sheetBend  = @[@{@"picture" : @"squareKnot1.jpg", @"description" : @""},
+                            @{@"picture" : @"squareKnot2.jpg", @"description" : @""},
+                            @{@"picture" : @"squareKnot3.jpg", @"description" : @""},
+                            @{@"picture" : @"squareKnot4.jpg", @"description" : @""},
+                            @{@"picture" : @"sheetBend5.jpg", @"description" : @""},
+                            @{@"picture" : @"sheetBend6.jpg", @"description" : @""}];
+    
+    NSArray *butterflyLoop= @[@{@"picture" : @"butterflyLoop1.jpg", @"description" : @""},
+                            @{@"picture" : @"butterflyLoop2.jpg", @"description" : @""},
+                            @{@"picture" : @"butterflyLoop3.jpg", @"description" : @""},
+                            @{@"picture" : @"butterflyLoop4.jpg", @"description" : @""},
+                            @{@"picture" : @"butterflyLoop5.jpg", @"description" : @""},
+                            @{@"picture" : @"butterflyLoop6.jpg", @"description" : @""},
+                            @{@"picture" : @"butterflyLoop7.jpg", @"description" : @""},
+                            @{@"picture" : @"butterflyLoop8.jpg", @"description" : @""}];
+    
+    NSArray *heavingLineKnot= @[@{@"picture" : @"heavingLineKnot1.jpg", @"description" : @""},
+                                @{@"picture" : @"heavingLineKnot2.jpg", @"description" : @""},
+                                @{@"picture" : @"heavingLineKnot3.jpg", @"description" : @""},
+                                @{@"picture" : @"heavingLineKnot4.jpg", @"description" : @""},
+                                @{@"picture" : @"heavingLineKnot5.jpg", @"description" : @""},
+                                @{@"picture" : @"heavingLineKnot6.jpg", @"description" : @""},
+                                @{@"picture" : @"heavingLineKnot7.jpg", @"description" : @""},
+                                @{@"picture" : @"heavingLineKnot8.jpg", @"description" : @""}];
+    
     
     NSDictionary *knotList  = @{@"squareKnot" : squareKnot,
                                 @"cloveHitch" : cloveHitch,
-                                @"hitchingTie": hitchingTie};
+                                @"hitchingTie": hitchingTie,
+                                @"bowline": bowline,
+                                @"overhandLoop" : overhandLoop,
+                                @"cowHitch" : cowHitch,
+                                @"transomKnot" : transomKnot,
+                                @"sheetBend" : sheetBend,
+                                @"butterflyLoop" : butterflyLoop,
+                                @"heavingLineKnot" : heavingLineKnot};
 
     return knotList;
 }

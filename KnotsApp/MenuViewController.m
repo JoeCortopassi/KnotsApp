@@ -15,7 +15,7 @@
 
 @implementation MenuViewController
 
-@synthesize menuSlider, pageInformation,knotKeys;
+@synthesize menuSlider, pageInformation,knotKeys, pageOrder;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,9 +54,16 @@
 
 - (NSDictionary *) pageInformation
 {
-    return    @{@"squareKnot" : @{@"title" : @"Square Knot", @"picture" : @"squareKnot5.jpg", @"name" : @"squareKnot"},
-                @"cloveHitch" : @{@"title" : @"Clove Hitch", @"picture" : @"cloveHitch6.jpg", @"name" : @"cloveHitch"},
-                @"hitchingTie": @{@"title" : @"Hitching Tie", @"picture" : @"hitchingTie6.jpg", @"name" : @"hitchingTie"}};
+    return    @{@"squareKnot"       : @{@"title" : @"Square Knot",      @"picture" : @"squareKnot5.jpg",        @"name" : @"squareKnot"},
+                @"cloveHitch"       : @{@"title" : @"Clove Hitch",      @"picture" : @"cloveHitch5.jpg",        @"name" : @"cloveHitch"},
+                @"hitchingTie"      : @{@"title" : @"Hitching Tie",     @"picture" : @"hitchingTie6.jpg",       @"name" : @"hitchingTie"},
+                @"bowline"          : @{@"title" : @"Bowline",          @"picture" : @"bowline6.jpg",           @"name" : @"bowline"},
+                @"overhandLoop"     : @{@"title" : @"Overhand Loop",    @"picture" : @"overhandLoop4.jpg",      @"name" : @"overhandLoop"},
+                @"cowHitch"         : @{@"title" : @"Cow Hitch",        @"picture" : @"cowHitch6.jpg",          @"name" : @"cowHitch"},
+                @"transomKnot"      : @{@"title" : @"Transom Knot",     @"picture" : @"transomKnot6.jpg",       @"name" : @"transomKnot"},
+                @"sheetBend"        : @{@"title" : @"Sheet Bend",       @"picture" : @"sheetBend5.jpg",         @"name" : @"sheetBend"},
+                @"butterflyLoop"    : @{@"title" : @"Butterfly Loop",   @"picture" : @"butterflyLoop7.jpg",     @"name" : @"butterflyLoop"},
+                @"heavingLineKnot"  : @{@"title" : @"Heaving Line Knot",@"picture" : @"heavingLineKnot8.jpg",   @"name" : @"heavingLineKnot"}};
 }
 
 - (MenuItemView *)setupPageSubviewForIndex:(int)index
