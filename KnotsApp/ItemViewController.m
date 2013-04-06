@@ -47,6 +47,12 @@
 }
 
 
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [self.imageScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
